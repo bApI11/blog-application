@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- Bootstrap 5.3.2 CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+</head>
+
+<body class="container mt-5">
+
+	<!-- ================= NAVBAR ================= -->
+	
+		<div th:if="${msg}" class="alert alert-danger" th:text="${msg}"></div>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+		<div class="container-fluid">
+
+			<!-- Website Name -->
+			<a class="navbar-brand" href="#">
+				<h4 class="mb-0">Chandra Blog</h4>
+			</a>
+			<!-- Mobile Menu Button -->
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+				aria-controls="navbarMenu" aria-expanded="false"
+				aria-label="Toggle navigation">
+
+				<span class="navbar-toggler-icon"></span>
+
+			</button>
+			<!-- Navbar Menu -->
+			<div class="collapse navbar-collapse" id="navbarMenu">
+
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+					<!-- All Post -->
+					<li class="nav-item"><a class="nav-link active" href="/post">
+							All Post </a></li>
+							
+					<li class="nav-item"><a class="nav-link active" href="/comment/comments">
+							Comments </a></li>
+
+
+					<!-- Login -->
+					<li class="nav-item"><a class="nav-link" href="/post">
+							Add Post </a></li>
+
+
+					<!-- Register -->
+					<li class="nav-item"><a class="nav-link" href="/user">
+							Logout </a></li>
+
+				</ul>
+				<!-- Search -->
+				<form class="d-flex">
+
+					<input class="form-control me-2" type="search" placeholder="Search"
+						aria-label="Search">
+
+					<button class="btn btn-outline-success" type="submit">
+
+						Blog Search</button>
+				</form>
+			</div>
+		</div>
+	</nav><br>
+	<button>All Comments</button>
+	<table class="table table-bordered table-striped ">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Short Description</th>
+            <th>Content</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr th:each="post : ${comments}">
+            <td th:text="${post.id}"></td>
+            <td th:text="${post.title}"></td>
+            <td th:text="${post.shortDescription}"></td>
+            <td th:text="${post.content}"></td>
+        </tr>
+    </tbody>
+</table>
+<div th:if="${#lists.isEmpty(comments)}" class="alert alert-info text-center">
+    No Comments Available.
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chandra Blog</title>
+
+<!-- Bootstrap 5.3.2 CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+</head>
+
+
+<body>
+
+	<!-- ================= NAVBAR ================= -->
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+		<div class="container-fluid">
+
+			<!-- Website Name -->
+			<a class="navbar-brand" href="#">
+				<h4 class="mb-0">Chandra Blog</h4>
+			</a>
+			<!-- Mobile Menu Button -->
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+				aria-controls="navbarMenu" aria-expanded="false"
+				aria-label="Toggle navigation">
+
+				<span class="navbar-toggler-icon"></span>
+
+			</button>
+
+
+			<!-- Navbar Menu -->
+			<div class="collapse navbar-collapse" id="navbarMenu">
+
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+					<!-- Home -->
+					<li class="nav-item"><a class="nav-link active" href="/user">
+							Home </a></li>
+					<li class="nav-item"><a class="nav-link active" href="#">
+							All Post </a></li>
+
+
+					<!-- Login -->
+					<li class="nav-item"><a class="nav-link" href="/user/login"> Login </a>
+					</li>
+
+
+					<!-- Register -->
+					<li class="nav-item"><a class="nav-link" href="/user/register">
+							Register </a></li>
+
+				</ul>
+
+
+				<!-- Search -->
+				<form class="d-flex">
+
+					<input class="form-control me-2" type="search" placeholder="Search"
+						aria-label="Search">
+
+					<button class="btn btn-outline-success" type="submit">
+
+						Blog Search</button>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</nav>
+
+
+	<!-- ================= BLOG CONTENT ================= -->
+
+	<div class="container mt-3">
+
+
+		<!-- ================= JAVA BLOG ================= -->
+
+		<div class="card mb-2">
+
+			<!-- Heading -->
+			<div class="card-header">
+
+				<h3 class="card-title mb-0">
+
+					<a href="#" class="text-decoration-none"> What is Java </a>
+				</h3>
+
+			</div>
+
+
+			<!-- Body -->
+			<div class="card-body">
+
+				<strong>02 May 2026</strong>
+
+
+				<p class="mt-2">
+
+					Java is a programming language. <a data-bs-toggle="collapse"
+						href="#javaDetails" role="button" aria-expanded="false"
+						aria-controls="javaDetails"> Read more </a>
+
+				</p>
+
+
+				<!-- Read More Content -->
+				<!-- Read More Content -->
+				<div class="collapse" id="javaDetails">
+					<p>Java is a high-level, object-oriented programming language
+						developed by Sun Microsystems.</p>
+
+					<p>Java is widely used to develop web applications, desktop
+						applications, mobile applications and enterprise applications.</p>
+
+					<p>Java programs run on the Java Virtual Machine, commonly
+						known as JVM. This allows Java applications to run on different
+						operating systems.</p>
+
+					<!-- Comments Section Container -->
+					<div class="mt-3">
+						<h5>User Comments</h5>
+
+						<div class="list-group mb-3">
+							<!-- Show message if no comments exist -->
+							<div th:if="${#lists.isEmpty(comments)}" class="text-muted">
+								No comments available for Java yet.</div>
+
+							<!-- Loop through the comments list using Thymeleaf -->
+							<div th:each="comment : ${comments}" class="list-group-item">
+								<div class="d-flex justify-content-between">
+									<!-- User Name -->
+									<strong class="mb-1" th:text="${comment.username}">User
+										Name</strong>
+
+									<!-- Date -->
+									<small class="text-muted" th:text="${comment.date}">Date</small>
+								</div>
+
+								<!-- Comment Text -->
+								<p class="mb-1" th:text="${comment.text}">Comment text goes
+									here...</p>
+							</div>
+						</div>
+					</div>
+
+					<a data-bs-toggle="collapse" href="#javaDetails"
+						class="btn btn-link p-0 mt-2"> Read less </a>
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<!-- ================= SPRING BOOT BLOG ================= -->
+
+		<div class="card mb-2">
+
+			<!-- Heading -->
+			<div class="card-header">
+
+				<h3 class="card-title mb-0">
+
+					<a href="#" class="text-decoration-none"> What is Spring Boot </a>
+
+				</h3>
+
+			</div>
+
+
+			<!-- Body -->
+			<div class="card-body">
+
+				<strong>02 May 2026</strong>
+
+
+				<p class="mt-2">
+
+					Spring Boot is an approach to develop Spring-based applications. <a
+						data-bs-toggle="collapse" href="#springDetails" role="button"
+						aria-expanded="false" aria-controls="springDetails"> Read more
+
+					</a>
+
+				</p>
+
+
+				<!-- Read More Content -->
+				<div class="collapse" id="springDetails">
+
+					<p>Spring Boot is a framework built on top of the Spring
+						Framework.</p>
+
+					<p>It simplifies the development of Java applications by
+						providing auto-configuration, embedded servers and
+						production-ready features.</p>
+
+					<p>Spring Boot is commonly used to create REST APIs, web
+						applications and microservices.</p>
+
+					<a data-bs-toggle="collapse" href="#springDetails"> Read less </a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+
+		<!-- ================= ANGULAR BLOG ================= -->
+
+		<div class="card mb-2">
+
+			<!-- Heading -->
+			<div class="card-header">
+
+				<h3 class="card-title mb-0">
+
+					<a href="#" class="text-decoration-none"> What is Angular </a>
+
+				</h3>
+
+			</div>
+
+
+			<!-- Body -->
+			<div class="card-body">
+
+				<strong>02 May 2026</strong>
+
+
+				<p class="mt-2">
+
+					Angular is a framework used to develop user interfaces. <a
+						data-bs-toggle="collapse" href="#angularDetails" role="button"
+						aria-expanded="false" aria-controls="angularDetails"> Read
+						more </a>
+
+				</p>
+
+
+				<!-- Read More Content -->
+				<div class="collapse" id="angularDetails">
+
+					<p>Angular is a TypeScript-based web application framework
+						developed by Google.</p>
+
+					<p>It is commonly used for building dynamic and single-page web
+						applications.</p>
+
+					<p>Angular provides features such as components, routing,
+						forms, dependency injection and HTTP communication.</p>
+
+					<a data-bs-toggle="collapse" href="#angularDetails"> Read less
+
+					</a>
+
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+	</nav>
+	</div>
+
+
+	<!-- ================= BOOTSTRAP JAVASCRIPT ================= -->
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+		
+	</script>
+
+
+</body>
+
+</html>
