@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chandra.dto.PostDTO;
 import com.chandra.entity.Post;
-import com.chandra.entity.dto.PostDTO;
 import com.chandra.service.PostService;
 
 @Controller

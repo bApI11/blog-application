@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Blog Details</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body class="container mt-5">
+
+  <!-- Alert Message -->
+	<div id="msg" th:if="${msg}" class="alert alert-success">
+		<span th:text="${msg}"></span>
+	</div>
+	<div class="container">
+
+		<h4 th:text="${post.title}"></h4>
+
+		 <p th:text="${post.shortDescription}"></p>
+
+		<hr>
+
+		<div th:text="${post.content}"></div>
+
+	</div>
+
+	<div class="mt-3">
+		<h5>User Comments</h5>
+
+		<div class="list-group mb-3">
+			<!-- Show message if no comments exist -->
+			<div th:if="${#lists.isEmpty(comments)}" class="text-muted">No
+				comments available for yet.</div>
+
+			<!-- Loop through the comments list using Thymeleaf -->
+			<div th:each="comment : ${comments}" class="list-group-item">
+				<div class="d-flex justify-content-between">
+					<!-- User Name -->
+					<strong class="mb-1" th:text="${comment.name}">User
+						Name</strong>
+
+					<!-- Date -->
+					<small class="text-muted" th:text="${comment.creationOn}">Date</small>
+				</div>
+
+				<!-- Comment Text -->
+				<p class="mb-1" th:text="${comment.content}">Comment text goes
+					here...</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Add Comment Form -->
+	<div class="mb-2">
+		<h4>Add a Comment</h4>
+		<form th:action="@{/comment/posts/{id}/comments(id=${post.postId})}" th:object="${commentDTO}" method="post">
+			<hr>
+			<!-- Title -->
+			<div class="mb-2">
+				<label class="form-label fw-bold"> Name </label> <input type="text"
+					class="form-control" th:field="*{name}" placeholder="Enter name">
+			</div>
+			 
+			<!-- Short Description -->
+			<div class="mb-2">
+				<label class="form-label fw-bold"> Email </label> <input
+					type="email" class="form-control" th:field="*{email}"
+					placeholder="Enter email">
+			</div>
+			 
+			<!-- Content -->
+			<div class="mb-2">
+				<label class="form-label fw-bold"> Content </label>
+				<textarea class="form-control" rows="4" th:field="*{content}"
+					placeholder="Write your content here...">
+			</textarea>
+			</div>
+			 
+			<!-- Submit Button -->
+			<div class="text-center">
+				<button type="submit" class="btn btn-success px-4">Save
+					Comment</button>
+
+				<button type="reset" class="btn btn-secondary px-4">Clear</button>
+			</div>
+
+		</form>
+	</div>
+
+</body>
+</html>

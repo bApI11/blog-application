@@ -4,8 +4,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.chandra.dto.UserDTO;
 import com.chandra.entity.User;
-import com.chandra.entity.dto.UserDTO;
 @Service
 public interface UserService {
 	

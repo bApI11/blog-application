@@ -93,14 +93,24 @@
 		<div class="card mb-2">
 
 			<!-- Heading -->
-			<div class="card-header">
+			<div th:each="post : ${posts}" class="card mb-3">
+    <div class="card-body">
 
-				<h3 class="card-title mb-0">
+        <h3>
+            <a th:href="@{/comment/posts/{id}(id=${post.id})}"
+               th:text="${post.title}">
+            </a>
+        </h3>
 
-					<a href="#" class="text-decoration-none"> What is Java </a>
-				</h3>
+        <p th:text="${post.descrip}"></p>
 
-			</div>
+        <a class="btn btn-primary"
+           th:href="@{/comment/posts/{id}(id=${post.id})}">
+            Read More
+        </a>
+
+    </div>
+</div>
 
 
 			<!-- Body -->

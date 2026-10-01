@@ -1,4 +1,4 @@
-package com.chandra.entity.dto;
+package com.chandra.dto;
 
 import lombok.Getter;
 import lombok.Setter;

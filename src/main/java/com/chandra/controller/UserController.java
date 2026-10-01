@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chandra.dto.UserDTO;
 import com.chandra.entity.Post;
 import com.chandra.entity.User;
-import com.chandra.entity.dto.UserDTO;
 import com.chandra.service.PostService;
 import com.chandra.service.UserService;
 
@@ -28,7 +28,7 @@ public class UserController {
 	
 	@GetMapping
 	public String logIn(Model model) {
-		postList(model);)
+		postList(model);
 		//model.addAttribute("user", new User());
 		return "Index";
 	}

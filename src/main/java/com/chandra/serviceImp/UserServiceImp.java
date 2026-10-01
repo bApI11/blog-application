@@ -4,8 +4,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chandra.dto.UserDTO;
 import com.chandra.entity.User;
-import com.chandra.entity.dto.UserDTO;
 import com.chandra.repo.UserRepo;
 import com.chandra.service.UserService;
 @Service

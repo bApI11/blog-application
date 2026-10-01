@@ -2,8 +2,8 @@ package com.chandra.service;
 
 import org.springframework.data.domain.Page;
 
+import com.chandra.dto.PostDTO;
 import com.chandra.entity.Post;
-import com.chandra.entity.dto.PostDTO;
 
 
 public interface PostService {

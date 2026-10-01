@@ -11,8 +11,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.chandra.dto.PostDTO;
 import com.chandra.entity.Post;
-import com.chandra.entity.dto.PostDTO;
 import com.chandra.repo.PostRepo;
 import com.chandra.service.PostService;
 
@@ -50,6 +50,7 @@ public class PostServiceImp implements PostService{
 		
 		Post post= postRepo.getById(id);
 		PostDTO dto= new PostDTO();
+		dto.setPostId(post.getId());
 		dto.setTitle(post.getTitle());
 		dto.setShortDescription(post.getDescrip());
 		dto.setContent(post.getContent());
